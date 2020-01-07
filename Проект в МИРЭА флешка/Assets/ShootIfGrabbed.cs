@@ -9,12 +9,13 @@ public class ShootIfGrabbed : MonoBehaviour
     private OVRGrabbable ovrGrabbable;
     public OVRInput.Button LeftshootingButton;
     public OVRInput.Button RightshootingButton;
-    public int maxNumberOfBullet = 10;
+    public int maxNumberOfBullet = 0;
     public Text bulletText;
     public AudioClip shootingAudio;
     public GameObject gun;
     public float range = 100f;
     public Color color;
+    public Animation anim;
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +39,9 @@ public class ShootIfGrabbed : MonoBehaviour
                     //  VibrationManager.singleton.TriggerVibration(shootingAudio,ovrGrabbable.grabbedBy.GetController());
                     //  GetComponent<AudioSource>().PlayOneShot(shootingAudio);
                     simpleShoot.TriggerShoot();
-                    maxNumberOfBullet--;
+                    maxNumberOfBullet++;
                     bulletText.text = maxNumberOfBullet.ToString();
+                    anim.GetComponent<Animation>().enabled = false;
                 }
             }
             if (ovrGrabbable.grabbedBy.GetController() == OVRInput.Controller.RTouch)
@@ -50,8 +52,9 @@ public class ShootIfGrabbed : MonoBehaviour
                     //  VibrationManager.singleton.TriggerVibration(shootingAudio,ovrGrabbable.grabbedBy.GetController());
                     //  GetComponent<AudioSource>().PlayOneShot(shootingAudio);
                     simpleShoot.TriggerShoot();
-                    maxNumberOfBullet--;
+                    maxNumberOfBullet++;
                     bulletText.text = maxNumberOfBullet.ToString();
+                    anim.GetComponent<Animation>().enabled = false;
                 }
             }
         }
