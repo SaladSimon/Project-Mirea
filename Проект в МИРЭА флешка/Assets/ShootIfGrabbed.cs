@@ -61,12 +61,5 @@ public class ShootIfGrabbed : MonoBehaviour
     }
         }
 
-        //    void Shoot()
-        //   {
-        //    RaycastHit hit;
-        // if (Physics.Raycast(gun.transform.position, gun.transform.forward, out hit, range))
-        // {
-        //     Destroy(hit.transform);
-        //   }
-        //   }
+     
    
